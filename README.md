@@ -66,4 +66,24 @@ GET /filterimage?image_url={{URL}}
 
 ![GET /](/deployment_screenshots/dev-200-2.png)
 
-### deployment screenshot
+### deploy
+
+1. execute `npm run build` in terminal to compile typescript into javascript and generate archive.zip file
+2. using elasbeanstalk cli to init, create and deploy the application
+
+```
+eb init
+eb create
+eb deploy
+```
+
+3. you can also manually create an application and upload zip file in AWS management console
+
+## deployment screenshots
+
+1. overview
+   ![GET /](/deployment_screenshots/deploy-1.png)
+   ![GET /](/deployment_screenshots/deploy-2.png)
+2. return filtered images
+   ![GET /](/deployment_screenshots/deploy-3.png)
+   ![GET /](/deployment_screenshots/deploy-4.png)
