@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 import {
   filterImageFromURL,
   deleteLocalFiles,
@@ -31,7 +31,7 @@ import {
 
   /**************************************************************************** */
 
-  app.get('/filteredimage', async (req, res) => {
+  app.get('/filteredimage', async (req: Request, res: Response) => {
     try {
       const imageUrl = req.query.image_url as string;
       if (!(await validateImageUrl(imageUrl))) {
@@ -54,11 +54,11 @@ import {
 
   // Root Endpoint
   // Displays a simple message to the user
-  app.get('/', (req, res) => {
+  app.get('/', (req: Request, res: Response) => {
     res.send('try GET /filteredimage?image_url={{}}');
   });
   // 404 Not Found
-  app.use('/', (req, res) => {
+  app.use('/', (req: Request, res: Response) => {
     res.status(404).send({
       message: 'page not found, please try GET /filteredimage?image_url={{}}',
     });
